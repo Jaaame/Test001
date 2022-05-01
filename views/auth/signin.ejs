@@ -1,0 +1,41 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container mt-3 mb-3">
+  <%- include("../partials/flash") %>
+
+  <div class="row bg p-2">
+    <div class="col-md-8 m-auto">
+      <form action="/signin" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="userName" class="form-label">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Enter User Name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Enter Your Password "
+            required
+          />
+        </div>
+
+        <button class="btn btn-primary">Sign In</button>
+        <br />
+        <p class="mt-2">
+          <a class="text-warning" href="/register" style="text-decoration: none"
+            >Haven't Account ? Register Here</a
+          >
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include("../partials/footer") %>

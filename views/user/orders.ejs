@@ -1,0 +1,77 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container mt-3">
+  <%- include("../partials/flash") %>
+
+  <div class="row">
+    <div class="col m-auto p-2">
+      <% for(let order of orders){ %>
+      <div class="card bg-white m-2 border border-danger" style="color: black">
+        <!--  -->
+        <h5 class="card-header">
+          <p class="fw-light fs-6">Transaction Id : <%=order.txnid%></p>
+          <p class="fw-light fs-6">Order Id : <%=order.orderid%></p>
+          <p class="fw-light fs-6">Order Date : <%=order.createdAt %></p>
+          <p class="fw-bold fs-6">Amount : <%=order.amount%></p>
+
+          <% if (order.status === "Order Accepted") { %>
+          <p class="fw-bold fs-6">Status : <%=order.status%></p>
+
+          <% } else if (order.status === "Processing") { %>
+          <p class="fw-bold fs-6 text-warning">Status : <%=order.status%></p>
+
+          <% } else if (order.status === "Prepared") { %>
+          <p class="fw-bold fs-6 text-warning">Status : <%=order.status%></p>
+
+          <% } else if (order.status === "Dispatched") { %>
+          <p class="fw-bold fs-6 text-info">Status : <%=order.status%></p>
+
+          <% } else if (order.status === "Delivered") { %>
+          <p class="fw-bold fs-6 text-success">Status : <%=order.status%></p>
+
+          <% } else if(order.status === "Cancelled") { %>
+          <p class="fw-bold fs-6 text-danger">Status : <%=order.status%></p>
+
+          <% } %>
+        </h5>
+
+        <div class="card-body bg-dark">
+          <%for(let item of order.orderedProducts){%>
+          <div class="row">
+            <div
+              class="card col-md-5 mb-3 bg-white"
+              style="
+                max-width: 540px;
+                width: 90%;
+                border: 2px solid red;
+                color: darkslateblue;
+                margin: 0 1rem;
+              "
+            >
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img style="width: 150px" src="<%=item.img%>" alt="..." />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title"><%=item.name%></h2>
+                    <a
+                      href="/products/<%=item._id%>"
+                      class="btn btn-info btn-sm"
+                      >Buy it again</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <%}%>
+        </div>
+      </div>
+
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include("../partials/footer") %>

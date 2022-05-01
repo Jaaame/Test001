@@ -1,0 +1,62 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+<div class="container bg mt-3 mb-3 p-3">
+  <%- include("../partials/flash") %>
+
+  <form
+    action="/products/<%=product._id%>"
+    method="POST"
+    enctype="multipart/form-data"
+    class="needs-validation"
+    novalidate
+  >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Product Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        placeholder="Product Name"
+        value="<%=product.name  %> "
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Product Image</label>
+      <input
+        type="file"
+        class="form-control"
+        name="file"
+        placeholder="Product Image"
+        value="<%=product.img  %> "
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        name="price"
+        placeholder="Product Price"
+        value="<%=product.price%>"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        rows="4"
+        name="desc"
+        placeholder="Product Description"
+        required
+      >
+<%= product.desc %></textarea
+      >
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+  </form>
+</div>
+<%- include("../partials/footer") %>

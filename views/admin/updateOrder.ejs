@@ -1,0 +1,55 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container">
+  <%- include("../partials/flash") %>
+
+  <h3 class="text-center m-3">Update Order Status</h3>
+  <div class="m-auto border border-info border-3">
+    <form
+      class="m-5"
+      action="/admin/<%= currentUser._id %>/order/<%=order._id%>?_method=PATCH"
+      method="POST"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="orderId" class="form-label">Order ID</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          value="<%= order._id %>"
+        />
+        <label class="form-label">Current Status</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          value="<%= order.status %>"
+        />
+        <div class="mb-4">
+          <label for="updateStatus" class="form-label">Update Staus </label>
+          <select class="form-select form-control" name="status">
+            <option class="form-control" name="Processing" value="Processing">
+              Processing
+            </option>
+            <option class="form-control" name="Prepared" value="Prepared">
+              Prepared
+            </option>
+            <option class="form-control" name="Dispatched" value="Dispatched">
+              Dispatched
+            </option>
+            <option class="form-control" name="Delivered" value="Delivered">
+              Delivered
+            </option>
+            <option class="form-control" name="Cancelled" value="Cancelled">
+              Cancelled
+            </option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary save">Save Status</button>
+    </form>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

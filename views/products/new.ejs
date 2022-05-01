@@ -1,0 +1,79 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container mt-3 mb-3">
+  <%- include("../partials/flash") %>
+
+  <div class="row bg p-2">
+    <div class="col-md-8 m-auto">
+      <form
+        action="/products"
+        method="POST"
+        enctype="multipart/form-data"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Product Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            placeholder="Product Name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >Product Image
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            name="imgtext"
+            placeholder="Product Image"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            name="price"
+            placeholder="Product Price"
+            required
+          />
+        </div>
+        <!-- <div class="mb-3">
+          <label for="exampleInputStock" class="form-label">Stock</label>
+          <input
+            type="number"
+            class="form-control"
+            name="product[stock]"
+            placeholder="Product Stock"
+            required
+          />
+        </div> -->
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            rows="4"
+            name="desc"
+            placeholder="Product Description"
+            required
+          ></textarea>
+        </div>
+
+        <button class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,61 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container mt-3 mb-3">
+  <%- include("../partials/flash") %>
+
+  <div class="row bg p-2">
+    <div class="col-md-8 m-auto">
+      <form
+        action="/register"
+        method="POST"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="userName" class="form-label">User Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            placeholder="Enter User Name"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            placeholder="Enter Your Email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="userRole" class="form-label">Signup As </label>
+          <select class="form-select form-control" name="role" value="role">
+            <option selected>Select one from below menu</option>
+            <option value="User" name="user">User</option>
+            <option value="Admin" name="user">Admin</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            placeholder="Enter Your Password "
+            required
+          />
+        </div>
+
+        <button class="btn btn-primary">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include("../partials/footer") %>

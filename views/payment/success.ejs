@@ -1,0 +1,32 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container pt-3 pb-3">
+  <%- include("../partials/flash") %>
+
+  <div class="card m-auto bg-dark text-warning" style="width: 60%">
+    <div class="text-center fs-2 p-2">Transaction Successfull</div>
+    <div class="text-center m-auto">
+      <i class="far fa-check-circle"></i>
+    </div>
+
+    <div class="row mt-5 fw-bold p-3">
+      <div class="col-4 success">Transaction Id</div>
+      <div class="col-8"><%= payment.TXNID %></div>
+
+      <div class="col-4 success">Order Id</div>
+      <div class="col-8"><%= payment.ORDERID %></div>
+
+      <div class="col-4 success">Amount</div>
+      <div class="col-8"><%= payment.TXNAMOUNT %> <%= payment.CURRENCY %></div>
+
+      <div class="col-4 success">Bank Name</div>
+      <div class="col-8"><%= payment.BANKNAME %></div>
+
+      <div class="col-4 success">Payment Mode</div>
+      <div class="col-8"><%= payment.PAYMENTMODE %></div>
+    </div>
+
+    <a class="btn btn-info p-3 m-3" href="/products">Go Back</a>
+  </div>
+</div>
+<%- include("../partials/footer") %>

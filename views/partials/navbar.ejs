@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <h1
+      class="navbar-brand"
+      style="font-family: 'Lobster', cursive; color: #f72585"
+    >
+      <i class="fas fa-shopping-bag"></i>My shopApp
+    </h1>
+    <button
+      class="navbar-toggler custom-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/products">Products</a>
+        </li>
+        <% if(currentUser != null && currentUser.role === "Admin") {%>
+        <li class="nav-item">
+          <a class="nav-link active" href="/products/new">Add Products</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <div class="navbar-nav ml-auto">
+      <% if(!currentUser){ %>
+      <li class="nav-item">
+        <a href="/signin" class="nav-link active">Signin</a>
+      </li>
+      <% }else{ %>
+      <li class="nav-item">
+        <a href="/user/<%= currentUser._id %>/profile" class="nav-link active"
+          >Hello <%= currentUser.username %>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/user/<%= currentUser._id %>/cart " class="nav-link active">
+          <i class="fas fa-cart-plus"></i>
+          <sup
+            ><span class="badge bg-danger"
+              ><%= currentUser.cart.length %>
+            </span></sup
+          >
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/logout" class="nav-link active">Signout</a>
+      </li>
+      <% } %>
+    </div>
+  </div>
+</nav>

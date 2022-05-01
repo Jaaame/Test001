@@ -1,0 +1,35 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container border border-danger mt-3 mb-3">
+  <%- include("../partials/flash") %>
+
+  <div class="row p-2 m-auto">
+    <!--  -->
+    <div class="col-md-4 border border-info text-center m-1">
+      <i class="far fa-user-circle" style="font-size: 10rem"></i>
+      <h2><%= userProfile.username %></h2>
+      <h5><%= userProfile.email %></h5>
+    </div>
+
+    <div class="col card border border-info m-1">
+      <div class="card-header text-center">
+        <h2><%= currentUser.role%> Dashboard</h2>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <% if (currentUser.role === "Admin") { %>
+        <li class="list-group-item">
+          <a href="/admin/<%=currentUser._id%>/allorders "> All Orders </a>
+        </li>
+        <% }else{ %>
+
+        <li class="list-group-item">
+          <a href="/user/<%= currentUser._id%>/orders">My Orders</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

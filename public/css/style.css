@@ -1,0 +1,85 @@
+.fa-shopping {
+  color: #f1faee;
+  padding: 0.5rem;
+  font-size: 3rem;
+}
+
+.far {
+  padding: 0.5rem;
+  font-size: 5rem;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  padding-left: 0.5rem;
+  color: #f1faee;
+}
+
+.nav-item a {
+  color: #90e0ef;
+  font-weight: bold;
+}
+
+.custom-toggler.navbar-toggler {
+  border: 2px solid #bcf33c;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  background-color: #011502;
+}
+
+.container {
+  background-color: #ffffff;
+  position: relative;
+  min-height: 100%;
+  margin-bottom: 4rem;
+}
+
+.card,
+.bg {
+  background-color: #011502;
+  color: #b1ff0a;
+  border-radius: 3px;
+}
+
+/* .alert-success {
+  background-color: rgb(87, 245, 200);
+  color: rgb(142, 6, 240);
+  text-align: center;
+  margin: 5px auto;
+  width: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.alert-danger {
+  background-color: rgb(228, 117, 117);
+  color: azure;
+} */
+
+.text-capitalize {
+  color: yellow;
+  background-color: rgba(100, 99, 99, 0.383);
+}
+
+.success {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.list-group .list-group-item a {
+  text-decoration: none;
+  list-style: none;
+  font-size: 1.5rem;
+  color: rgb(230, 15, 43);
+  font-weight: bold;
+}

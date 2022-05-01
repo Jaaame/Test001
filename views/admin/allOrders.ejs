@@ -1,0 +1,148 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container">
+  <%- include("../partials/flash") %>
+  <h3 class="text-center mt-2">All Orders</h3>
+  <table class="table table-bordered border-primary mt-4 mb-3">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <% for(let order of allOrders ){ %>
+    <tbody>
+      <tr>
+        <td><%= order._id %></td>
+        <td><%= order.date %></td>
+        <td><%= order.status %></td>
+        <td><%= order.amount %></td>
+        <td className="bg-secondary">
+          <!-- Button trigger modal -->
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modal<%= order._id%>"
+          >
+            Update
+          </button>
+
+          <!-- Modal For Edit Status-->
+          <div
+            class="modal fade"
+            id="modal<%= order._id%>"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Update Order Status
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <form
+                  class="m-5"
+                  id="form"
+                  action="/admin/<%= currentUser._id %>/order/<%= order._id %>?_method=PATCH"
+                  method="POST"
+                >
+                  <div class="mb-3">
+                    <label for="orderId" class="form-label">Order ID</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="orderId"
+                      disabled
+                      value="<%= order._id %>"
+                    />
+                    <label class="form-label">Current Status</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      disabled
+                      value="<%= order.status %>"
+                    />
+                    <div class="mb-4">
+                      <label for="updateStatus" class="form-label"
+                        >Update Staus
+                      </label>
+                      <select
+                        class="form-select form-control"
+                        name="status"
+                        value="status"
+                      >
+                        <option
+                          class="form-control"
+                          name="Processing"
+                          value="Processing"
+                        >
+                          Processing
+                        </option>
+                        <option
+                          class="form-control"
+                          name="Prepared"
+                          value="Prepared"
+                        >
+                          Prepared
+                        </option>
+                        <option
+                          class="form-control"
+                          name="Dispatched"
+                          value="Dispatched"
+                        >
+                          Dispatched
+                        </option>
+                        <option
+                          class="form-control"
+                          name="Delivered"
+                          value="Delivered"
+                        >
+                          Delivered
+                        </option>
+                        <option
+                          class="form-control"
+                          name="Cancelled"
+                          value="Cancelled"
+                        >
+                          Cancelled
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary save">
+                    Save Status
+                  </button>
+                </form>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancle
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <% } %>
+  </table>
+</div>
+<%- include("../partials/footer") %>
+

@@ -1,0 +1,124 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+<link rel="stylesheet" href="/css/star.css" />
+
+<section>
+  <div class="container-fluid">
+    <%- include("../partials/flash") %>
+
+    <div class="row justify-content-md-center mt-2 mb-5 p-2">
+      <div class="col-md-5 p-2 mb-2 bg">
+        <div class="card mt-2">
+          <img
+            src="<%=product.img  %> "
+            height="400px"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h2 class="card-title"><%= product.name %></h2>
+            <h4 class="card-title"><%= product.price %></h4>
+            <p class="card-text"><%= product.desc %></p>
+            <!-- <p class="text-info fw-bold">
+              Currently <%= product.stock %> items is available
+            </p> -->
+
+            <% if (currentUser != null && currentUser.role === "Admin") { %>
+            <a href="/products/<%= product._id %>/edit" class="btn btn-primary"
+              >Edit
+            </a>
+            <% } %>
+
+            <form
+              action="/user/<%=product._id%>/cart"
+              method="POST"
+              class="mt-2"
+            >
+              <button class="btn btn-secondary">Add to Cart</button>
+            </form>
+
+            <% if (currentUser != null && currentUser.role === "Admin") { %>
+            <form
+              action="/products/<%=product._id%>?_method=DELETE"
+              method="POST"
+              class="mt-2"
+            >
+              <button class="btn btn-danger">Delete</button>
+            </form>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+      <!-- //Review Form -->
+      <div class="col-md-5">
+        <div class="bg text-warning">
+          <h1 class="text-center">Product Review</h1>
+          <form
+            class="needs-validation p-3"
+            action="/products/<%= product._id %>/review "
+            method="POST"
+            novalidate
+          >
+            <label for="rating" class="form-label">Rate the product</label>
+            <fieldset class="starability-basic">
+              <input
+                type="radio"
+                id="no-rate"
+                class="input-no-rate"
+                name="rating"
+                value="0"
+                checked
+                aria-label="No rating."
+              />
+              <input type="radio" id="first-rate1" name="rating" value="1" />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input type="radio" id="first-rate2" name="rating" value="2" />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input type="radio" id="first-rate3" name="rating" value="3" />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input type="radio" id="first-rate4" name="rating" value="4" />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input type="radio" id="first-rate5" name="rating" value="5" />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Description</label
+              >
+              <textarea
+                class="form-control"
+                rows="4"
+                name="comment"
+                placeholder="Product Description"
+                required
+              ></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Save</button>
+          </form>
+        </div>
+
+        <% for(let review of product.reviews) {%>
+        <div class="bg mt-2 mb-2">
+          <div class="bg-info p-2">
+            <div class="card m-1" style="color: #ff810a">
+              <h5 class="card-header text-capitalize">
+                <strong>By <%= review.user %> </strong>
+              </h5>
+              <div class="card-body">
+                <p
+                  class="starability-result"
+                  data-rating="<%=review.rating %>"
+                ></p>
+                <h4 class="card-text">Comment : <%=review.comment%></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include("../partials/footer") %>
