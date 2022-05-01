@@ -1,45 +1,26 @@
-const express = require('express');
-const { check, body } = require('express-validator');
+const path = require("path");
+
+const express = require("express");
+
+const adminController = require("../controllers/admin");
+
 const router = express.Router();
 
-const adminController = require('../controllers/admin');
-const isAuth = require('../middleware/is-auth');
+// /admin/add-product => GET
+router.get("/add-product", adminController.getAddProduct);
 
-router.get('/add-product', isAuth, adminController.getAddProduct);
+// /admin/products => GET
+router.get("/products", adminController.getProducts);
 
-router.post('/add-product', 
-    [
-        body('title', 'The title is invalid')
-            .isString()
-            .isLength({ min: 3 })
-            .trim(),
-        body('price', 'The price needs to be a valid number')
-            .isFloat(),
-        body('description', 'The description needs at least 5 characters')
-            .isLength({ min: 5 })
-            .trim()
-    ],
-    isAuth, adminController.postAddProduct);
+// /admin/add-product => POST
+router.post("/add-product", adminController.postAddProduct);
 
-router.get('/product-store', isAuth, adminController.getProducts);
+// /admin/edit-product => GET
+router.get("/edit-Product/:productId", adminController.getEditProduct);
 
-router.get('/edit-product/:productId', isAuth, adminController.getEditProduct);
+// /admin/edit-product => POST
+router.post("/edit-product", adminController.postEditProduct);
 
-router.post('/edit-product', 
-    [
-        body('title', 'The title is invalid')
-            .isString()
-            .isLength({ min: 3 })
-            .trim(),
-        body('price', 'The price needs to be a valid number')
-            .isFloat(),
-        body('description', 'The description needs at least 5 characters')
-            .isLength({ min: 5 })
-            .trim()
-    ],
-    isAuth, adminController.postEditProduct);
-
-//router.post('/delete-product', isAuth, adminController.postDeleteProduct);
-router.delete('/product/:productId', isAuth, adminController.deleteProduct);
+router.post("/delete-product", adminController.postDeleteProduct);
 
 module.exports = router;
