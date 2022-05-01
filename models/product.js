@@ -6,14 +6,23 @@ const productSchema = new Schema({
         type: String,
         required: true
     },
-    imageURL: {
+    price: {
+        type: Number,
+        required: true
+    },
+    description: {
         type: String,
         required: true
     },
-    price: Number,
-    description: String
+    image: {
+        type: String,
+        required: true
+    },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
-// model name: 'Product' will be used to turn into a collection name in DB
-// 'Product' => 'product' + 's' => products
 module.exports = mongoose.model('Product', productSchema);
