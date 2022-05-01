@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "SET NODE_ENV=production&& SET MONGO_USER=admin&& SET MONGO_PASSWORD=password_02&& SET MONGO_DEFAULT_DATABASE=shop&& SET STRIPE_KEY=sk_test && node app.js",
-    "start:dev": "nodemon app.js"
+    "start:dev": "nodemon server.js"
   },
   "author": "Pierre",
   "license": "ISC",
