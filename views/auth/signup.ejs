@@ -12,12 +12,12 @@
         novalidate
       >
         <div class="mb-3">
-          <label for="userName" class="form-label">User Name</label>
+          <label for="userName" class="form-label">ชื่อผู้ใช้งาน</label>
           <input
             type="text"
             class="form-control"
             name="username"
-            placeholder="Enter User Name"
+            placeholder="ชื่อผู้ใช้งาน"
             required
           />
         </div>
@@ -28,32 +28,37 @@
             type="email"
             class="form-control"
             name="email"
-            placeholder="Enter Your Email"
+            placeholder="Email"
             required
           />
         </div>
 
         <div class="mb-3">
-          <label for="userRole" class="form-label">Signup As </label>
+          <label for="userRole" class="form-label">สถานะ </label>
           <select class="form-select form-control" name="role" value="role">
-            <option selected>Select one from below menu</option>
+            <option selected>โปรดเลือก 1 ในเมนูต่อไปนี้</option>
             <option value="User" name="user">User</option>
             <option value="Admin" name="user">Admin</option>
           </select>
         </div>
 
         <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">รหัสผ่าน</label>
           <input
             type="password"
             class="form-control"
             name="password"
-            placeholder="Enter Your Password "
+            placeholder="รหัสผ่าน "
             required
           />
         </div>
 
-        <button class="btn btn-primary">Register</button>
+        <button class="btn btn-primary">สร้างบัญชี</button>
+        <br />
+        <p class="mt-2">
+          <a class="text-warning" href="/signin" style="text-decoration: none"
+            >หากมีบัญชีแล้ว กดที่นี้เพื่อเข้าสู่ระบบ</a
+          >
       </form>
     </div>
   </div>

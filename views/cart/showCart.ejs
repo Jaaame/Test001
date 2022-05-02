@@ -23,7 +23,7 @@
                 action="/user/<%=currentUser._id%>/cart/<%=item._id%>?_method=DELETE"
                 method="post"
               >
-                <button class="btn btn-sm btn-danger">remove</button>
+                <button class="btn btn-sm btn-danger">นำออก</button>
               </form>
             </div>
           </div>
@@ -34,19 +34,19 @@
 
     <div class="col-lg-4 mb-3">
       <%totalAmount=0%>
-      <h6 class="display-6">Products</h6>
+      <h6 class="display-6">สินค้าในตะกร้า</h6>
       <ul class="list-group">
         <!--  -->
         <%for(let item of userCart){%>
         <li class="list-group-item">
-          <%=item.name%> - <strong>&#8377; <%=item.price%></strong>
+          <%=item.name%> - <strong><%=item.price%> บาท</strong>
         </li>
         <%totalAmount+=item.price%> <%}%>
         <!--  -->
       </ul>
 
       <div class="mt-2">
-        <p class="fw-bold">Total amount : &#8377; <%=totalAmount%></p>
+        <p class="fw-bold">ยอดรวม : <%=totalAmount%> บาท</p>
         <form action="/pay" method="POST">
           <input
             class="amount"
@@ -79,7 +79,7 @@
             value="educational purpose"
           />
 
-          <button class="btn btn-success form-control">Proceed To Pay</button>
+          <button class="btn btn-success form-control">ชำระเงิน</button>
         </form>
       </div>
     </div>

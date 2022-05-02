@@ -10,53 +10,53 @@
     novalidate
   >
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Product Name</label>
+      <label for="exampleInputEmail1" class="form-label">ชื่อสินค้า</label>
       <input
         type="text"
         class="form-control"
         name="name"
-        placeholder="Product Name"
+        placeholder="ชื่อสินค้า"
         value="<%=product.name  %> "
         required
       />
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Product Image</label>
+      <label for="exampleInputEmail1" class="form-label">ลิงค์รูปสินค้า</label>
       <input
-        type="file"
+        type="text"
         class="form-control"
-        name="file"
-        placeholder="Product Image"
+        name="imgtext"
+        placeholder="ลิงค์รูปสินค้า"
         value="<%=product.img  %> "
         required
       />
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Price</label>
+      <label for="exampleInputPassword1" class="form-label">ราคา</label>
       <input
         type="number"
         class="form-control"
         name="price"
-        placeholder="Product Price"
+        placeholder="ราคา"
         value="<%=product.price%>"
         required
       />
     </div>
 
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Description</label>
+      <label for="exampleInputPassword1" class="form-label">รายละเอียดสินค้า</label>
       <textarea
         class="form-control"
         rows="4"
         name="desc"
-        placeholder="Product Description"
+        placeholder="รายละเอียดสินค้า"
         required
       >
 <%= product.desc %></textarea
       >
     </div>
 
-    <button class="btn btn-primary" type="submit">Save</button>
+    <button class="btn btn-primary" type="submit">บันทึก</button>
   </form>
 </div>
 <%- include("../partials/footer") %>

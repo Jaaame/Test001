@@ -17,14 +17,14 @@ body {
 .nav-link {
   font-weight: 700;
   font-size: 1.3rem;
-  color: #f48c06;
+  color: #ffffff;
   margin-left: 1rem;
   border-bottom: 0.25rem solid transparent;
 }
 
 .nav-link:hover {
-  color: #ffb703;
-  border-bottom-color: rgba(255, 255, 255, 0.5);
+  color: #ff0000;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-link.active {

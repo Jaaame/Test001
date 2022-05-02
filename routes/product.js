@@ -39,11 +39,11 @@ router.post(
         img: req.body.imgtext,
       });
       await product.save();
-      req.flash("success", "Product Added Successfully");
+      req.flash("success", "เพิ่มสินค้าเรียบร้อยแล้ว");
       res.redirect("/products");
     } catch (e) {
       // console.log(e);
-      req.flash("error", "Cannot Create Products,Something is Wrong");
+      req.flash("error", "ไม่สามารถเพิ่มสินค้าได้ โปรดลองอีกครั้ง");
       res.render("error");
     }
   }
@@ -84,10 +84,10 @@ router.post(
         desc: req.body.desc,
         img: req.file.path,
       });
-      req.flash("success", "Product Updated Successfully");
+      req.flash("success", "อัพเดตสินค้าเรียบร้อย");
       res.redirect(`/products/${req.params.id}`);
     } catch (e) {
-      req.flash("error", "Cannot update this Product");
+      req.flash("error", "ไม่สามารถอัพเดตสินค้า");
       res.redirect("/error");
     }
   }
@@ -97,15 +97,15 @@ router.post(
 router.delete("/products/:id", isLoggedIn, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
-    req.flash("success", "Deleted the product successfully");
+    req.flash("success", "ลบสินค้าเรียบร้อยแล้ว");
     res.redirect("/products");
   } catch (e) {
-    req.flash("error", "Cannot delete this Product");
+    req.flash("error", "ไม่สามารถลบสินค้าได้");
     res.redirect("/error");
   }
 });
 
-//Review Route
+//Review Routeรอลบออก
 router.post("/products/:id/review", isLoggedIn, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);

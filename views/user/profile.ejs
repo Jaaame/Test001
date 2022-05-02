@@ -13,18 +13,18 @@
 
     <div class="col card border border-info m-1">
       <div class="card-header text-center">
-        <h2><%= currentUser.role%> Dashboard</h2>
+        <h2>ข้อมูล <%= currentUser.role%></h2>
       </div>
 
       <ul class="list-group list-group-flush">
         <% if (currentUser.role === "Admin") { %>
         <li class="list-group-item">
-          <a href="/admin/<%=currentUser._id%>/allorders "> All Orders </a>
+          <a href="/admin/<%=currentUser._id%>/allorders "> ออเดอร์ทั้งหมด </a>
         </li>
         <% }else{ %>
 
         <li class="list-group-item">
-          <a href="/user/<%= currentUser._id%>/orders">My Orders</a>
+          <a href="/user/<%= currentUser._id%>/orders">ออเดอร์ของฉัน</a>
         </li>
         <% } %>
       </ul>

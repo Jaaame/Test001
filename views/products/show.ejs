@@ -10,13 +10,14 @@
         <div class="card mt-2">
           <img
             src="<%=product.img  %> "
-            height="400px"
+            height="450px"
             class="card-img-top"
             alt="..."
           />
           <div class="card-body">
             <h2 class="card-title"><%= product.name %></h2>
-            <h4 class="card-title"><%= product.price %></h4>
+            <h4 class="card-title"><%= product.price %> บาท</h4>
+            <h4 class="card-title">ข้อมูลหนังสือ</h4>
             <p class="card-text"><%= product.desc %></p>
             <!-- <p class="text-info fw-bold">
               Currently <%= product.stock %> items is available
@@ -24,7 +25,7 @@
 
             <% if (currentUser != null && currentUser.role === "Admin") { %>
             <a href="/products/<%= product._id %>/edit" class="btn btn-primary"
-              >Edit
+              >แก้ไข
             </a>
             <% } %>
 
@@ -33,7 +34,7 @@
               method="POST"
               class="mt-2"
             >
-              <button class="btn btn-secondary">Add to Cart</button>
+              <button class="btn btn-secondary">นำเข้าตะกร้า</button>
             </form>
 
             <% if (currentUser != null && currentUser.role === "Admin") { %>
@@ -42,7 +43,7 @@
               method="POST"
               class="mt-2"
             >
-              <button class="btn btn-danger">Delete</button>
+              <button class="btn btn-danger">ลบ</button>
             </form>
             <% } %>
           </div>
@@ -50,7 +51,7 @@
       </div>
 
       <!-- //Review Form -->
-      <div class="col-md-5">
+      <!--<div class="col-md-5">
         <div class="bg text-warning">
           <h1 class="text-center">Product Review</h1>
           <form
@@ -117,7 +118,7 @@
           </div>
         </div>
         <% } %>
-      </div>
+      </div>-->
     </div>
   </div>
 </section>

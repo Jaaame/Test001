@@ -24,7 +24,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/home.css" />
-    <title>shopApp</title>
+    <title>BKStore</title>
   </head>
   <body class="d-flex">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -37,13 +37,13 @@
             <i class="fas fa-shopping-bag"></i>BKStore
           </h1>
           <nav class="nav nav-masthead justify-content-center float-md-right">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="/products">Products</a>
+            <a class="nav-link active" aria-current="page" href="#">หน้าแรก</a>
+            <a class="nav-link" href="/products">สินค้า</a>
             <% if(!currentUser) { %>
-            <a class="nav-link" href="/signin">Login</a>
-            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="/signin">เข้าสู่ระบบ</a>
+            <a class="nav-link" href="/register">สมัครสมาชิก</a>
             <% } else { %>
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link" href="/logout">ออกจากระบบ</a>
             <% } %>
           </nav>
         </div>
@@ -63,9 +63,9 @@
           class="lead"
           style="
             font-family: cursive;
-            color: #ff0004;
+            color: #ffc400;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 2rem;
           "
         >
           ยินดีต้อนรับผู้ใช้งานทุกท่าน <br />
@@ -79,7 +79,7 @@
             border-white
             bg-white
           "
-          >View Products</a
+          >สินค้าของเรา</a
         >
       </main>
 

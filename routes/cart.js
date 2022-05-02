@@ -22,10 +22,10 @@ router.post("/user/:id/cart", isLoggedIn, async (req, res) => {
     user.cart.push(product);
     await user.save();
 
-    req.flash("success", "Item added into cart successfully");
+    req.flash("success", "เพิ่มเข้าตะกร้าเรียบร้อย");
     res.redirect(`/user/${req.user._id}/cart`);
   } catch (e) {
-    req.flash("error", "Unable to add item into cart ");
+    req.flash("error", "ไม่สามารถเพิ่มสินค้าได้ ");
     res.render("error");
   }
 });
@@ -35,10 +35,10 @@ router.delete("/user/:userid/cart/:id", isLoggedIn, async (req, res) => {
     const { userid, id } = req.params;
 
     await User.findByIdAndUpdate(userid, { $pull: { cart: id } });
-    req.flash("success", "Product Removed From Cart");
+    req.flash("success", "ลบสินค้าออกจากตะกร้าเรียบร้อย");
     res.redirect(`/user/${req.user._id}/cart`);
   } catch (error) {
-    req.flash("error", "Something went wrong !!");
+    req.flash("error", "เกิดข้อผิดพลาดบางอย่าง");
     res.redirect("error", e.message);
   }
 });

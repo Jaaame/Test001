@@ -9,16 +9,17 @@
       <div class="card">
         <img
           src="<%=item.img  %> "
-          height="300px"
-          class="card-img-top p-3"
+          height="400px"
+          class="card-img-top p-4"
           alt="..."
         />
         <div class="card-body">
           <h3 class="card-title"><%= item.name %></h3>
-          <h5 class="card-title"><%= item.price %></h5>
+          <h5 class="card-title"><%= item.price %> บาท</h5>
+          <h5 class="card-title">ข้อมูลหนังสือ</h5>
           <p class="card-text"><%= item.desc.substring(0,50) %>...</p>
           <a href="/products/<%=item._id%>" class="btn btn-primary"
-            >More Info</a
+            >สั่งซื้อ/ดูข้อมูลเพิ่มเติม</a
           >
         </div>
       </div>

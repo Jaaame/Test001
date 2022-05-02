@@ -16,10 +16,10 @@ router.post("/register", async (req, res) => {
     });
     const newUser = await User.register(user, req.body.password);
     // console.log(newUser);
-    req.flash("success", "User Registred Successfully. Please Log In");
+    req.flash("success", "สร้างบัญชีเรียบร้อยแล้ว");
     res.redirect("/signin");
   } catch (e) {
-    req.flash("error", "Unable to Register User , Enter valid details");
+    req.flash("error", "ไม่สามารถสร้างบัญชีได้ โปรดตรวจสอบลายละเอียด");
     res.redirect("/register");
   }
 });
@@ -37,7 +37,7 @@ router.post(
   (req, res) => {
     req.flash(
       "success",
-      `Welcome back ${req.user.username}, You Logged In Successfully`
+      `ยินดีต้อนรับ ${req.user.username}, เข้าสู่ระบบเรียบร้อยแล้ว`
     );
     res.redirect("/");
   }
@@ -49,7 +49,7 @@ router.get("/", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logout();
-  req.flash("success", "Logged Out Successfully");
+  req.flash("success", "ออกจากระบบเรียบร้อยแล้ว");
   res.redirect("/signin");
 });
 

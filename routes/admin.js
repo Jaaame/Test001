@@ -8,7 +8,7 @@ router.get("/admin/:id/allorders", isLoggedIn, async (req, res) => {
     const allOrders = await Order.find({}).sort({ date: -1 });
     res.render("admin/allOrders", { allOrders });
   } catch (error) {
-    req.flash("error", "Cannot Find Orders");
+    req.flash("error", "ไม่พบเจอสินค้า");
     res.render("error");
   }
 });
@@ -18,7 +18,7 @@ router.get("/admin/:id/order/:orderId", isLoggedIn, async (req, res) => {
     const order = await Order.findById(req.params.orderId);
     res.render("admin/updateOrder", { order });
   } catch (error) {
-    req.flash("error", "Unable to find the Order");
+    req.flash("error", "ไม่มีคำสั่งซื้อ");
     res.render("error");
   }
 });
@@ -33,10 +33,10 @@ router.patch("/admin/:id/order/:orderId", isLoggedIn, async (req, res) => {
         useFindAndModify: false,
       }
     );
-    req.flash("success", "Order Updated Successfully");
+    req.flash("success", "อับเดตออเดอร์เรียบร้อย");
     res.redirect(`/admin/${req.params.id}/allorders`);
   } catch (error) {
-    req.flash("error", "Cannot Update Order");
+    req.flash("error", "ไม่สามารถอับเดตออเดอร์ได้");
     res.render("error");
   }
 });

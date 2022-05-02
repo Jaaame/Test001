@@ -16,7 +16,7 @@
 }
 
 .nav-item a {
-  color: #90e0ef;
+  color: #f2f2f2;
   font-weight: bold;
 }
 
@@ -33,8 +33,8 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 0.5rem 0;
-  background-color: #011502;
+  padding: 1rem 0;
+  background-color: #bfff00;
 }
 
 .container {
@@ -46,8 +46,8 @@
 
 .card,
 .bg {
-  background-color: #011502;
-  color: #b1ff0a;
+  background-color: #e8ede9;
+  color: #000000;
   border-radius: 3px;
 }
 
@@ -82,4 +82,8 @@
   font-size: 1.5rem;
   color: rgb(230, 15, 43);
   font-weight: bold;
+}
+
+.btn-secondary{
+  background-color: red;
 }
