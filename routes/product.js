@@ -15,7 +15,7 @@ router.get("/products", async (req, res) => {
     // console.log(products);
     res.render("products/index", { products });
   } catch (e) {
-    req.flash("error", "Cannot Find Products");
+    req.flash("error", "ไม่พบข้อมูลสินค้า");
     res.render("error");
   }
 });
@@ -55,7 +55,7 @@ router.get("/products/:id", async (req, res) => {
     const product = await Product.findById(req.params.id).populate("reviews");
     res.render("products/show", { product });
   } catch (e) {
-    req.flash("error", "Cannot find this Product");
+    req.flash("error", "ไม่สามารถแสดงสินค้าได้");
     res.redirect("/error");
   }
 });
@@ -66,7 +66,7 @@ router.get("/products/:id/edit", isLoggedIn, async (req, res) => {
     const product = await Product.findById(req.params.id);
     res.render("products/edit", { product });
   } catch (e) {
-    req.flash("error", "Cannot Edit this Product");
+    req.flash("error", "ไม่สามารถแก้ไขสินค้าได้");
     res.redirect("/error");
   }
 });
