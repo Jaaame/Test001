@@ -34,12 +34,13 @@
         </div>
 
         <div class="mb-3">
-          <label for="userRole" class="form-label">สถานะ </label>
-          <select class="form-select form-control" name="role" value="role">
-            <option selected>โปรดเลือก 1 ในเมนูต่อไปนี้</option>
-            <option value="User" name="user">User</option>
-            <option value="Admin" name="user">Admin</option>
-          </select>
+          <input
+            type="hidden"
+            class="form-control"
+            name="user"
+            value="User"
+            required
+          />
         </div>
 
         <div class="mb-3">
