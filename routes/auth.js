@@ -35,10 +35,7 @@ router.post(
     failureFlash: true,
   }),
   (req, res) => {
-    req.flash(
-      "success",
-      `ยินดีต้อนรับ ${req.user.username}, เข้าสู่ระบบเรียบร้อยแล้ว`
-    );
+    req.flash("success",`ยินดีต้อนรับ ${req.user.username}, เข้าสู่ระบบเรียบร้อยแล้ว`);
     res.redirect("/");
   }
 );
