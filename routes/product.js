@@ -82,7 +82,7 @@ router.post(
         name: req.body.name,
         price: req.body.price,
         desc: req.body.desc,
-        img: req.file.path,
+        img: req.body.imgtext,
       });
       req.flash("success", "อัพเดตสินค้าเรียบร้อย");
       res.redirect(`/products/${req.params.id}`);
