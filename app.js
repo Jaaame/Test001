@@ -39,7 +39,7 @@ mongoose
     console.log("DB Connected");
   })
   .catch((err) => {
-    console.log("OPSSSS Errorrrr");
+    console.log("ERROR Conected");
     console.log(err);
   });
 
