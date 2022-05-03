@@ -1,7 +1,6 @@
 const express = require("express");
 const { isLoggedIn, isAdmin } = require("../middlewere");
 const Product = require("../models/product");
-const Review = require("../models/review");
 const router = express.Router();
 const multer = require("multer");
 
@@ -101,29 +100,6 @@ router.delete("/products/:id", isLoggedIn, async (req, res) => {
     res.redirect("/products");
   } catch (e) {
     req.flash("error", "ไม่สามารถลบสินค้าได้");
-    res.redirect("/error");
-  }
-});
-
-//Review Routeรอลบออก
-router.post("/products/:id/review", isLoggedIn, async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id);
-    const review = new Review({
-      user: req.user.username,
-      ...req.body,
-    });
-
-    product.reviews.push(review);
-
-    await review.save();
-    await product.save();
-
-    // console.log(product);
-    req.flash("success", "Successfully added your review!");
-    res.redirect(`/products/${req.params.id}`);
-  } catch (e) {
-    req.flash("error", "Cannot add review to this Product");
     res.redirect("/error");
   }
 });
