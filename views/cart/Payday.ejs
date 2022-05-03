@@ -1,0 +1,55 @@
+<%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+<div class="container mt-3 mb-3">
+  <%- include("../partials/flash") %>
+
+  <div class="row bg p-2">
+    <div class="col-md-8 m-auto">
+      <form
+        action="/pay"
+        method="POST"
+        enctype="multipart/form-data"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >แนบลิ้งสลิป
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            name="slip_image"
+            required
+          />
+          <p></p>
+          <label for="exampleInputPassword1" class="form-label"
+            >ที่อยู่
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            name="address"
+            required
+          />
+          <input
+            class="number"
+            type="hidden"
+            name="Amount"
+            value="<%=totalAmount%>"
+          />
+          <input
+            class="text"
+            type="hidden"
+            name="orderItem"
+            value="<%=orderItem%>"
+          />
+        </div>
+
+        <button class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

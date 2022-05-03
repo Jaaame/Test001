@@ -34,6 +34,7 @@
 
     <div class="col-lg-4 mb-3">
       <%totalAmount=0%>
+      <%orderItem=""%>
       <h6 class="display-6">สินค้าในตะกร้า</h6>
       <ul class="list-group">
         <!--  -->
@@ -41,13 +42,15 @@
         <li class="list-group-item">
           <%=item.name%> - <strong><%=item.price%> บาท</strong>
         </li>
-        <%totalAmount+=item.price%> <%}%>
+        <%totalAmount+=item.price%> 
+        <%orderItem+=item.name+", "%>
+        <%}%>
         <!--  -->
       </ul>
 
       <div class="mt-2">
         <p class="fw-bold">ยอดรวม : <%=totalAmount%> บาท</p>
-        <form action="/pay" method="POST">
+        <form action="/payday" method="POST">
           <input
             class="amount"
             type="hidden"
@@ -78,7 +81,6 @@
             name="productinfo"
             value="educational purpose"
           />
-
           <button class="btn btn-success form-control">ชำระเงิน</button>
         </form>
       </div>

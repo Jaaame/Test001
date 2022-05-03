@@ -6,8 +6,11 @@
   <table class="table table-bordered border-primary mt-4 mb-3">
     <thead>
       <tr>
+        <th scope="col">ใบสลิป</th>
         <th scope="col">ID</th>
         <th scope="col">วันที่</th>
+        <th scope="col">สินค้า</th>
+        <th scope="col">ที่อยู่</th>
         <th scope="col">สถานะ</th>
         <th scope="col">ยอดรวม</th>
         <th scope="col">อัพเดต</th>
@@ -16,8 +19,11 @@
     <% for(let order of allOrders ){ %>
     <tbody>
       <tr>
+        <td><%= order.imagePay %></td>
         <td><%= order._id %></td>
         <td><%= order.date %></td>
+        <td><%= order.itemallder %></td>
+        <td><%= order.Address %></td>
         <td><%= order.status %></td>
         <td><%= order.amount %></td>
         <td className="bg-secondary">
@@ -87,35 +93,35 @@
                         <option
                           class="form-control"
                           name="Processing"
-                          value="Processing"
+                          value="กำลังเตรียมสินค้า"
                         >
                           กำลังเตรียมสินค้า
                         </option>
                         <option
                           class="form-control"
                           name="Prepared"
-                          value="Prepared"
+                          value="รอจัดส่ง"
                         >
                           รอจัดส่ง
                         </option>
                         <option
                           class="form-control"
                           name="Dispatched"
-                          value="Dispatched"
+                          value="ส่งแล้ว"
                         >
                           ส่งแล้ว
                         </option>
                         <option
                           class="form-control"
                           name="Delivered"
-                          value="Delivered"
+                          value="กำลังนำส่ง"
                         >
                           กำลังนำส่ง
                         </option>
                         <option
                           class="form-control"
                           name="Cancelled"
-                          value="Cancelled"
+                          value="ยกเลิก"
                         >
                           ยกเลิก
                         </option>

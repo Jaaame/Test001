@@ -4,15 +4,17 @@ const moment = require("moment");
 const now = moment();
 
 const orderSchema = new mongoose.Schema({
-  txnid: {
+  imagePay: {
     type: String,
     required: true,
-    unique: true,
   },
-  orderid: {
+  itemallder: {
     type: String,
     required: true,
-    unique: true,
+  },
+  Address: {
+    type: String,
+    required: true,
   },
   amount: {
     type: String,
@@ -24,7 +26,7 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Order Accepted",
+    default: "รอจัดส่ง",
   },
   createdAt: {
     type: String,
