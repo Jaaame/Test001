@@ -11,7 +11,7 @@ const upload = require("../multer");
 router.get("/products", async (req, res) => {
   try {
     const products = await Product.find({});
-    // console.log(products);
+    
     res.render("products/index", { products });
   } catch (e) {
     req.flash("error", "ไม่พบข้อมูลสินค้า");
@@ -41,7 +41,7 @@ router.post(
       req.flash("success", "เพิ่มสินค้าเรียบร้อยแล้ว");
       res.redirect("/products");
     } catch (e) {
-      // console.log(e);
+      
       req.flash("error", "ไม่สามารถเพิ่มสินค้าได้ โปรดลองอีกครั้ง");
       res.render("error");
     }

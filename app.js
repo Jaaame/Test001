@@ -42,7 +42,6 @@ mongoose
     console.log(err);
   });
 
-// seedDb();
 
 const sessionConfig = {
   secret: "ThisIsMySecrete",

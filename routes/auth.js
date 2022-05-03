@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
       role: req.body.role,
     });
     const newUser = await User.register(user, req.body.password);
-    // console.log(newUser);
+  
     req.flash("success", "สร้างบัญชีเรียบร้อยแล้ว");
     res.redirect("/signin");
   } catch (e) {

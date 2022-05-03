@@ -15,10 +15,6 @@
             <div class="card-body">
               <h5 class="card-title fw-bold"><%=item.name%></h5>
               <p class="card-text"><%= item.desc %></p>
-
-              <!-- <p class="text-info fw-bold">
-                Currently <%= item.stock %> items is available
-              </p> -->
               <form
                 action="/user/<%=currentUser._id%>/cart/<%=item._id%>?_method=DELETE"
                 method="post"
