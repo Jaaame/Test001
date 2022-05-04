@@ -24,10 +24,8 @@ router.get("/user/:userId/orders", isLoggedIn, async (req, res) => {
         model: "Product",
       },
     });
-    // console.log(userInfo);
     res.render("user/orders", { orders: userInfo.orders });
   } catch (error) {
-    // console.log(error);
     req.flash("error", error.message);
     res.render("error");
   }

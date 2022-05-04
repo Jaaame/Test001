@@ -19,9 +19,6 @@
             <h4 class="card-title"><%= product.price %> บาท</h4>
             <h4 class="card-title">ข้อมูลหนังสือ</h4>
             <p class="card-text"><%= product.desc %></p>
-            <!-- <p class="text-info fw-bold">
-              Currently <%= product.stock %> items is available
-            </p> -->
 
             <% if (currentUser != null && currentUser.role === "Admin") { %>
             <a href="/products/<%= product._id %>/edit" class="btn btn-primary"
